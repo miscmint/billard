@@ -35,7 +35,6 @@ class Ball {
     changePosition() {
         this.normalizedDirection = normalizedDirection(this.velocity, this.velocityAmount);
         this.position = arrayAddition(this.position, scalarMultiplication(this.velocityAmount, this.normalizedDirection));
-        //this.checkIfInHole(); <-- macht der Tisch
         this.checkCushion();
         //this.checkCollision(); <-- macht der Tisch
         this.redraw();
@@ -132,19 +131,4 @@ class Ball {
         this.velocity[int] = -this.velocity[int];
         this.degreaseVelocity(frictionCushion);
     }
-/* macht der Tisch
-    checkCollision() {
-        if (norm(this.velocity, 1) > 0) {
-
-            let style; let top; let left;
-            let balls = document.getElementsByClassName('ball');
-            for (let ball of balls) {
-                // if not the current ball
-                if (ball.getAttribute('id') !== this.color) {
-                    style = window.getComputedStyle(ball),
-                    top = style.getPropertyValue('top');
-                }
-            }
-        }
-    }*/
 }
