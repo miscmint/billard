@@ -10,6 +10,10 @@ window.onload = function() {
 
             table.checkIfBallInHole(ball, index, object);
 
+            for (let i = index + 1; i < table.balls.length; i++) {
+                table.checkIfBallsCollide(ball, table.balls[i]);
+            }
+
         });
 
 

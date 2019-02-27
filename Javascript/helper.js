@@ -46,3 +46,22 @@ function scalarMultiplication(scalar, array) {
     });
     return returnArray;
 }
+
+// normal to an 2-dimensional array
+function normalVector(array, direction = undefined) {
+    let normal = [-1 * array[1], array[0]];
+    if (undefined !== direction && angleBetweenArrays(normal, direction) > Math.PI / 2) {
+        normal = [array[1], -1 * array[0]];
+    }
+    return normal;
+}
+
+// angle between two 2-dimensional arrays
+function angleBetweenArrays(array1, array2) {
+    let scalarProduct = array1[0] * array2[0] + array1[1] * array2[1];
+    let euclidianNormArray1 = norm(array1, 2);
+    let euclidianNormArray2 = norm(array2, 2);
+    angle = Math.acos(scalarProduct / (euclidianNormArray1 * euclidianNormArray2));
+    
+    return angle;
+}
